@@ -280,7 +280,7 @@ export default function App() {
       </section>
 
       {/* Receber Section */}
-      <section className="bg-slate-50 py-16 px-4">
+      <section className="bg-slate-50 py-16 px-4" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="section-title text-[28px] sm:text-4xl font-bold text-gray-900 mb-12 tracking-tight leading-tight">O Que Você Vai Receber</h2>
           
@@ -320,7 +320,7 @@ export default function App() {
       </section>
 
       {/* Benefícios Section */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white py-16 px-4" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="section-title text-[28px] sm:text-4xl font-bold text-gray-900 mb-12 tracking-tight leading-tight">Benefícios Exclusivos</h2>
           
@@ -360,7 +360,7 @@ export default function App() {
       </section>
 
       {/* Bonus Section */}
-      <section className="bg-[#F0F4F8] py-16 px-4">
+      <section className="bg-[#F0F4F8] py-16 px-4" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="section-title text-[28px] sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight leading-tight">
@@ -587,7 +587,7 @@ export default function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-10 px-4">
+      <section className="bg-white py-10 px-4" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#0F172A] mb-8">Depoimentos Reais</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -617,7 +617,7 @@ export default function App() {
       {/* Author Section removed - backed up in backup_sections.json */}
 
       {/* Guarantee Section */}
-      <section className="bg-white py-6 px-4">
+      <section className="bg-white py-6 px-4" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-xl mx-auto bg-white rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.05)] p-6 text-center border border-gray-100">
           <div className="w-20 h-20 bg-[#F0FDF4] rounded-full flex items-center justify-center mx-auto mb-4">
             <ShieldCheck className="w-10 h-10 text-[#10B981]" />
@@ -629,7 +629,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-12 px-4">
+      <section className="bg-white py-12 px-4" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-8">Perguntas Frequentes</h2>
           <div className="space-y-3">
