@@ -280,7 +280,7 @@ export default function App() {
       </section>
 
       {/* Receber Section */}
-      <section className="bg-slate-50 py-16 px-4 border-t border-gray-100">
+      <section className="bg-slate-50 py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="section-title text-[28px] sm:text-4xl font-bold text-gray-900 mb-12 tracking-tight leading-tight">O Que Você Vai Receber</h2>
           
@@ -289,7 +289,7 @@ export default function App() {
               {
                 icon: <FileText className="w-8 h-8 text-white" />,
                 title: "Material Completo em PDF",
-                desc: "+250 dinâmicas de Segurança do Trabalho organizadas e prontas para aplicar em DDS, SIPAT e treinamentos"
+                desc: "+250 dinâmicas de Segurança do Trabalho organizadas e prontas para aplicar"
               },
               {
                 icon: <ClipboardList className="w-8 h-8 text-white" />,
