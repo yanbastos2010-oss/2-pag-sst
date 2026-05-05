@@ -476,7 +476,7 @@ export default function App() {
               </div>
               <div className="p-6 flex flex-col items-center w-full">
                 <h3 className="text-xl font-bold text-[#10B981] mb-1 uppercase">Plano Completo</h3>
-                <p className="text-gray-500 text-xs mb-4 text-center">Para transformar seus treinamentos</p>
+                <p className="text-gray-500 text-xs mb-4 text-center">Para transformar sua vida</p>
                 <div className="flex items-start text-[#10B981] font-extrabold mb-1">
                   <span className="text-lg mt-2">R$</span>
                   <span className="text-6xl">27</span>
