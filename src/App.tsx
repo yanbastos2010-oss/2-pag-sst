@@ -252,7 +252,7 @@ export default function App() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.05] sm:leading-[1.1] mb-8 tracking-[-0.03em] max-w-5xl mx-auto"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.05] sm:leading-[1.1] mb-4 sm:mb-6 tracking-[-0.03em] max-w-5xl mx-auto"
           >
             <span className="block sm:inline">+250 Dinâmicas</span>{' '}
             <span className="block sm:inline">Interativas de</span>{' '}
@@ -266,11 +266,11 @@ export default function App() {
             transition={{ delay: 0.1 }}
             className="text-base sm:text-lg text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Acesso imediato a dinâmicas práticas e prontas para usar para transformar cada DDS, treinamento e SIPAT em uma experiência mais participativa.
+            Tenha acesso a dinâmicas práticas, envolventes e estratégicas para promover mais atenção, participação e consciência no dia a dia da segurança.
           </motion.p>
 
           <div className="block max-w-4xl mx-auto mb-12">
-            <picture><source srcSet="https://i.ibb.co/Q7mrgCDr/9fe26f6e-bb22-4b74-9d07-bc2ddeee343a.png" type="image/webp" /><img src="https://i.ibb.co/Q7mrgCDr/9fe26f6e-bb22-4b74-9d07-bc2ddeee343a.png" alt="Mockup do Pacote" width="896" height="500" fetchPriority="high" decoding="async" className="w-full object-cover" /></picture>
+            <picture><source srcSet="https://i.ibb.co/wFDmbwFj/Untitled-design-5.png" type="image/webp" /><img src="https://i.ibb.co/wFDmbwFj/Untitled-design-5.png" alt="Untitled design (5)" width="896" height="500" fetchPriority="high" decoding="async" className="w-full object-cover" /></picture>
           </div>
 
           <div className="w-full flex justify-center">
@@ -289,7 +289,7 @@ export default function App() {
               {
                 icon: <FileText className="w-8 h-8 text-white" />,
                 title: "Material Completo em PDF",
-                desc: "+250 dinâmicas de Segurança do Trabalho organizadas e prontas para aplicar"
+                desc: "+250 dinâmicas de Segurança do Trabalho organizadas e prontas para aplicar em DDS, SIPAT e treinamentos"
               },
               {
                 icon: <ClipboardList className="w-8 h-8 text-white" />,
