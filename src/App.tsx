@@ -11,6 +11,7 @@ import { FileText,
   Flower,
   Play, 
   Check, 
+  CheckCircle2,
   ArrowDown, 
   Star, 
   Gift, 
@@ -57,12 +58,13 @@ const VortexVSL: React.FC = () => {
   const [showOverlay, setShowOverlay] = React.useState(true);
   const [progress, setProgress] = React.useState(0);
   const [showPauseIcon, setShowPauseIcon] = React.useState(false);
+  const [isMuted, setIsMuted] = React.useState(true);
 
   const curvatura = 0.5;
 
   const handleFirstClick = () => {
     if (videoRef.current) {
-      videoRef.current.muted = false;
+      setIsMuted(false);
       videoRef.current.currentTime = 0;
       videoRef.current.play();
       setShowOverlay(false);
@@ -100,7 +102,7 @@ const VortexVSL: React.FC = () => {
         ref={videoRef}
         id="vsl-video" 
         autoPlay 
-        muted 
+        muted={isMuted} 
         playsInline 
         preload="auto"
         onClick={togglePlay} 
@@ -270,7 +272,7 @@ export default function App() {
           </motion.p>
 
           <div className="block max-w-4xl mx-auto mb-12">
-            <picture><source srcSet="https://i.ibb.co/wFDmbwFj/Untitled-design-5.png" type="image/webp" /><img src="https://i.ibb.co/wFDmbwFj/Untitled-design-5.png" alt="Untitled design (5)" width="896" height="500" fetchPriority="high" decoding="async" className="w-full object-cover" /></picture>
+            <VortexVSL />
           </div>
 
           <div className="w-full flex justify-center">
