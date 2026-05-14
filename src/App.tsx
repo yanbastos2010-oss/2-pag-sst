@@ -453,82 +453,31 @@ export default function App() {
                 </div>
                 <p className="text-gray-400 text-[10px] font-medium uppercase tracking-wider mb-6">Pagamento Único</p>
                 
-                <div className="w-full bg-[#EAB308] text-white font-bold py-3 rounded-lg uppercase tracking-wide flex items-center justify-center gap-2 mb-6 text-lg">
-                  <Star className="w-4 h-4 fill-white" /> Acesso Vitalício
-                </div>
-
-                <div className="w-full mb-4 text-left">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <Check className="w-4 h-4 text-white" strokeWidth={4} />
-                    </div>
-                    <h4 className="text-[#10B981] font-medium text-sm sm:text-base leading-tight">+250 Dinâmicas de Segurança do Trabalho:</h4>
-                  </div>
-                  <ul className="space-y-1 text-gray-700 font-bold text-sm ml-8 list-disc">
-                    <li>Prevenção de Acidentes</li>
-                    <li>Uso de EPIs</li>
-                    <li>Comportamento Seguro</li>
-                    <li>Normas e Procedimentos (NRs)</li>
-                    <li>Situações de Risco e Emergência</li>
-                  </ul>
-                </div>
-
-                <div className="w-full bg-white rounded-xl p-3 border border-[#DCFCE7] mb-4 text-left">
-                  <div className="flex items-center gap-2 mb-2 text-pink-500 font-semibold text-xs uppercase">
-                    <Gift className="w-3 h-3" />
-                    Mais de R$ 97 reais em bônus GRÁTIS:
-                  </div>
-                  <ul className="space-y-1.5 text-gray-600 text-[11px] font-medium">
-                    <li className="flex items-center gap-2">• Certificado de Conclusão</li>
-                    <li className="flex items-center gap-2">• Quiz Interativo</li>
-                    <li className="flex items-center gap-2">• Cartazes Prontos de SST</li>
-                  </ul>
-                </div>
-
-                <div className="w-full space-y-3 mb-6 text-left">
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <Users className="w-3 h-3 text-white" />
-                    </div>
-                    Para DDS, SIPAT e Treinamentos
-                  </div>
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <BookOpen className="w-3 h-3 text-white" />
-                    </div>
-                    Alinhado às Normas de Segurança (NRs)
-                  </div>
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <Zap className="w-3 h-3 text-white" />
-                    </div>
-                    Aplicação Imediata
-                  </div>
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <Calendar className="w-3 h-3 text-white" />
-                    </div>
-                    Atualizações Mensais
-                  </div>
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <LockOpen className="w-3 h-3 text-white" />
-                    </div>
-                    Materiais 100% Baixáveis
-                  </div>
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <Users className="w-3 h-3 text-white" />
-                    </div>
-                    Suporte Rápido
-                  </div>
-                  <div className="flex items-center gap-2 text-[#10B981] font-medium text-xs sm:text-sm">
-                    <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
-                      <ShieldCheck className="w-3 h-3 text-white" />
-                    </div>
-                    Garantia de 14 dias
-                  </div>
-                </div>
+                <ul className="w-full space-y-3 mb-8 text-left">
+                  {[
+                    { text: "+250 Dinâmicas de Segurança do Trabalho", icon: <Check className="w-3 h-3 text-white" strokeWidth={4} /> },
+                    { text: "Acesso Vitalício", icon: <Check className="w-3 h-3 text-white" strokeWidth={4} /> },
+                    { text: "Garantia de 14 dias", icon: <Check className="w-3 h-3 text-white" strokeWidth={4} /> },
+                    { text: "BÔNUS: Certificado de Conclusão", isBonus: true },
+                    { text: "BÔNUS: Quiz Interativo", isBonus: true },
+                    { text: "BÔNUS: Cartazes Prontos de Segurança do Trabalho", isBonus: true },
+                    { text: "Atualizações Mensais", icon: <Check className="w-3 h-3 text-white" strokeWidth={4} /> },
+                    { text: "Suporte 24/7", icon: <Check className="w-3 h-3 text-white" strokeWidth={4} /> }
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-gray-900 font-bold text-[13px] sm:text-[15px]">
+                      {item.isBonus ? (
+                        <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                          <Gift className="w-5 h-5 text-pink-500" />
+                        </div>
+                      ) : (
+                        <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
+                          {item.icon}
+                        </div>
+                      )}
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
 
                 <button 
                   onClick={() => (window as any).redirectWithParams('https://checkout.pagseguropay.shop/VCCL1O8SCXF6')}
