@@ -23,15 +23,18 @@ import { FileText,
   ChevronDown,
   X,
   HardHat,
-  FileText,
+  Trophy,
+  Target,
   FileDown,
   Download,
   Headphones,
   Mail,
-  Calendar
+  Calendar,
+  ListChecks
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useState } from 'react';
+import SalesNotification from './components/SalesNotification';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -160,6 +163,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans overflow-x-hidden">
+      <SalesNotification />
       <AnimatePresence>
         {showUpsell && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
@@ -182,7 +186,7 @@ export default function App() {
                 </div>
                 <h2 className="text-center font-bold text-gray-900 text-3xl leading-tight mb-2">Espere! Antes de finalizar...</h2>
                 <p className="text-center text-sm text-gray-600 mb-4 leading-relaxed px-2">
-                  Você escolheu o plano básico de <span className="font-bold text-gray-800">R$ 9,90</span>, mas por apenas <span className="font-bold text-[#00C853]">R$ 10 a mais</span> pode liberar o Pacote Completo, com acesso total a +250 Dinâmicas de Segurança do Trabalho e todos os bônus.
+                  Você escolheu o acesso essencial de <span className="font-bold text-gray-800">R$ 9,90</span>, mas por apenas <span className="font-bold text-[#00C853]">R$ 10 a mais</span> pode liberar o Pacote Completo, com acesso total a +250 Dinâmicas de Segurança do Trabalho e todos os bônus.
                 </p>
                 
                 <div className="bg-[#F0FDF4] w-full rounded-2xl p-4 mb-4 border border-slate-100 flex flex-col items-center">
@@ -217,14 +221,14 @@ export default function App() {
                   onClick={() => (window as any).redirectWithParams('https://checkout.pagseguropay.shop/VCCL1O8SCXF9')}
                   className="w-full bg-[#00C853] hover:bg-[#00E676] text-white font-bold py-3 px-4 rounded-xl text-sm sm:text-base uppercase tracking-wide transition-colors cursor-pointer mb-4 text-center leading-tight shadow-md"
                 >
-                  SIM, QUERO O PLANO COMPLETO!
+                  SIM, QUERO O ACESSO COMPLETO!
                 </button>
 
                 <button 
                   onClick={() => (window as any).redirectWithParams('https://checkout.pagseguropay.shop/VCCL1O8SCXF8')}
                   className="w-full bg-white border-2 border-[#E2E8F0] text-[#94A3B8] font-bold py-3 px-4 rounded-xl text-sm sm:text-base transition-colors cursor-pointer text-center leading-tight"
                 >
-                  Não, prefiro o plano básico
+                  Não, prefiro o acesso essencial
                 </button>
               </div>
             </motion.div>
@@ -256,10 +260,9 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.05] sm:leading-[1.1] mb-4 sm:mb-6 tracking-[-0.03em] max-w-5xl mx-auto"
           >
-            <span className="block sm:inline">+250 Dinâmicas</span>{' '}
-            <span className="block sm:inline">Interativas de</span>{' '}
-            <span className="block sm:inline">Segurança do</span>{' '}
-            <span className="block sm:inline">Trabalho + <span className="text-[#10B981]">BÔNUS</span></span>
+            <span className="block sm:inline">+250 Dinâmicas de</span>{' '}
+            <span className="text-[#10B981]">Segurança do Trabalho</span>{' '}
+            <span>prontas para aplicar</span>
           </motion.h1>
 
           <motion.p 
@@ -281,82 +284,44 @@ export default function App() {
         </div>
       </section>
 
-      {/* Receber Section */}
-      <section className="bg-slate-50 py-16 px-4" style={{ contentVisibility: 'auto' }}>
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="section-title text-[28px] sm:text-4xl font-bold text-gray-900 mb-12 tracking-tight leading-tight">O Que Você Vai Receber</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: <FileText className="w-8 h-8 text-white" />,
-                title: "Material Completo em PDF",
-                desc: "+250 dinâmicas de Segurança do Trabalho organizadas e prontas para aplicar em DDS, SIPAT e treinamentos"
-              },
-              {
-                icon: <ClipboardList className="w-8 h-8 text-white" />,
-                title: "Roteiros Prontos",
-                desc: "Cada dinâmica já vem com objetivo, passo a passo e tempo definido, é só abrir e aplicar"
-              },
-              {
-                icon: <Smartphone className="w-8 h-8 text-white" />,
-                title: "Acesso Digital Completo",
-                desc: "Acesse por celular, tablet ou computador a qualquer hora e lugar"
-              },
-              {
-                icon: <Printer className="w-8 h-8 text-white" />,
-                title: "Pronto para Imprimir",
-                desc: "Material formatado para impressão e uso imediato com qualquer equipe"
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-[0_5px_20px_rgba(16,185,129,0.15)] border border-transparent flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(16,185,129,0.25)]">
-                <div className="bg-[#10B981] w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+      {/* O Que Você Vai Receber - Detailed Section */}
+      <section className="py-16 md:py-24 bg-slate-50" id="receber">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4 px-4 sm:px-0 tracking-tight">O Que Você Vai Receber</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Benefícios Section */}
-      <section className="bg-white py-16 px-4" style={{ contentVisibility: 'auto' }}>
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="section-title text-[28px] sm:text-4xl font-bold text-gray-900 mb-12 tracking-tight leading-tight">Benefícios Exclusivos</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: <Users className="w-8 h-8 text-white" />,
-                title: "Para Qualquer Tipo de Equipe",
-                desc: "Dinâmicas adaptadas desde equipes iniciantes até equipes avançadas"
-              },
-              {
-                icon: <Zap className="w-8 h-8 text-white" />,
-                title: "Mais Engajamento na Prática",
-                desc: "Atividades que realmente prendem a atenção e fazem os colaboradores participarem"
-              },
-              {
-                icon: <Calendar className="w-8 h-8 text-white" />,
-                title: "Atualizações Mensais",
-                desc: "Novas dinâmicas adicionadas todo mês sem custo extra"
-              },
-              {
-                icon: <ShieldCheck className="w-8 h-8 text-white" />,
-                title: "Foco em Prevenção Real",
-                desc: "Dinâmicas pensadas para reforçar comportamentos seguros, reduzir riscos e evitar acidentes no dia a dia"
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-[0_5px_20px_rgba(16,185,129,0.15)] border border-transparent flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(16,185,129,0.25)]">
-                <div className="bg-[#10B981] w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:shadow-lg hover:border-[#10B981]/30 transition-all group flex flex-col transform hover:-translate-y-1">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#10B981] rounded-xl flex items-center justify-center text-white mb-5 sm:mb-6 shadow-[#10B981]/10 shadow-md">
+                <ListChecks className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true" />
               </div>
-            ))}
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 leading-tight">+250 Dinâmicas Prontas</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Atividades organizadas e fáceis de aplicar. É só abrir e usar nos treinamentos e DDS.</p>
+            </div>
+
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:shadow-lg hover:border-[#10B981]/30 transition-all group flex flex-col transform hover:-translate-y-1">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#10B981] rounded-xl flex items-center justify-center text-white mb-5 sm:mb-6 shadow-[#10B981]/10 shadow-md">
+                <Trophy className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 leading-tight">Ideal Para Qualquer Ambiente</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Aplicável em empresas, indústrias, escolas técnicas e diferentes equipes.</p>
+            </div>
+
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:shadow-lg hover:border-[#10B981]/30 transition-all group flex flex-col transform hover:-translate-y-1">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#10B981] rounded-xl flex items-center justify-center text-white mb-5 sm:mb-6 shadow-[#10B981]/10 shadow-md">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 leading-tight">100% Organizado</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Separadas por tema, risco e objetivo para facilitar a aplicação.</p>
+            </div>
+
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:shadow-lg hover:border-[#10B981]/30 transition-all group flex flex-col transform hover:-translate-y-1">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#10B981] rounded-xl flex items-center justify-center text-white mb-5 sm:mb-6 shadow-[#10B981]/10 shadow-md">
+                <Target className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 leading-tight">Passo a Passo Completo</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Cada dinâmica com objetivo e execução explicados de forma simples.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -409,7 +374,7 @@ export default function App() {
       {/* Pricing Section */}
       <section id="pricing" className="bg-white py-12 px-4 relative">
         <div className="max-w-3xl mx-auto">
-          <h2 className="section-title text-[28px] sm:text-4xl font-bold text-center text-gray-900 mb-6 tracking-tight leading-tight">Escolha Seu <span className="text-[#10B981]">Plano</span></h2>
+          <h2 className="section-title text-[28px] sm:text-4xl font-bold text-center text-gray-900 mb-6 tracking-tight leading-tight">Escolha Seu <span className="text-[#10B981]">Acesso</span></h2>
           
           <div className="bg-[#FFF5F5] border border-[#FED7D7] rounded-xl py-2 px-4 mb-6 flex items-center justify-center gap-3 shadow-sm max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-300">
             <Zap className="text-amber-500 fill-amber-400 w-8 h-8 flex-shrink-0" />
@@ -417,9 +382,9 @@ export default function App() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 items-start">
-            {/* Basic Plan */}
+            {/* Essential Access */}
             <div className="bg-white rounded-3xl shadow-lg border border-gray-200 overflow-hidden relative p-6 flex flex-col items-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-1 uppercase">Plano Básico</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-1 uppercase">Acesso Essencial</h3>
               <p className="text-gray-500 text-xs mb-4">Para quem quer testar o método</p>
               <div className="flex items-start text-gray-900 font-extrabold mb-1">
                 <span className="text-lg mt-2">R$</span>
@@ -431,31 +396,31 @@ export default function App() {
               <p className="text-gray-400 text-[10px] font-medium uppercase tracking-wider mb-6">Pagamento Único</p>
               
               <ul className="w-full space-y-3 mb-6 text-left">
-                <li className="flex items-center gap-2 text-gray-700 font-medium text-xs sm:text-sm">
+                <li className="flex items-center gap-2 text-gray-900 font-bold text-[13px] sm:text-[15px]">
                   <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
                     <Check className="w-3 h-3 text-white" strokeWidth={4} />
                   </div>
                   +250 Dinâmicas de Segurança do Trabalho
                 </li>
-                <li className="flex items-center gap-2 text-gray-700 font-medium text-xs sm:text-sm">
+                <li className="flex items-center gap-2 text-gray-900 font-bold text-[13px] sm:text-[15px]">
                   <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
                     <Check className="w-3 h-3 text-white" strokeWidth={4} />
                   </div>
-                  Acesso digital
+                  Acesso Vitalício
                 </li>
-                <li className="flex items-center gap-2 text-gray-700 font-medium text-xs sm:text-sm">
+                <li className="flex items-center gap-2 text-gray-900 font-bold text-[13px] sm:text-[15px]">
                   <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
                     <Check className="w-3 h-3 text-white" strokeWidth={4} />
                   </div>
-                  Garantia de 7 dias
+                  Garantia de 14 dias
                 </li>
-                <li className="flex items-center gap-2 text-gray-700 font-medium text-xs sm:text-sm">
+                <li className="flex items-center gap-2 text-gray-900 font-bold text-[13px] sm:text-[15px]">
                   <div className="bg-red-500 rounded-full p-1 flex-shrink-0">
                     <X className="w-3 h-3 text-white" strokeWidth={4} />
                   </div>
                   Bônus Exclusivos
                 </li>
-                <li className="flex items-center gap-2 text-gray-700 font-medium text-xs sm:text-sm">
+                <li className="flex items-center gap-2 text-gray-900 font-bold text-[13px] sm:text-[15px]">
                   <div className="bg-red-500 rounded-full p-1 flex-shrink-0">
                     <X className="w-3 h-3 text-white" strokeWidth={4} />
                   </div>
@@ -471,14 +436,14 @@ export default function App() {
               </button>
             </div>
 
-            {/* Complete Plan */}
+            {/* Complete Access */}
             <div className="bg-[#F0FDF4] rounded-3xl shadow-xl border-2 border-[#10B981] overflow-hidden relative flex flex-col items-center transform md:-translate-y-4">
               <div className="bg-[#10B981] w-full text-center py-1.5 text-white font-bold uppercase text-xs flex items-center justify-center gap-1.5">
                 <Star className="w-3 h-3 fill-white" /> Mais Escolhido
               </div>
               <div className="p-6 flex flex-col items-center w-full">
-                <h3 className="text-xl font-bold text-[#10B981] mb-1 uppercase">Plano Completo</h3>
-                <p className="text-gray-500 text-xs mb-4 text-center">Para transformar sua vida</p>
+                <h3 className="text-xl font-bold text-[#10B981] mb-1 uppercase">Acesso Completo</h3>
+                <p className="text-gray-500 text-xs mb-4 text-center">Tudo incluso + bônus exclusivos para o ano todo</p>
                 <div className="flex items-start text-[#10B981] font-extrabold mb-1">
                   <span className="text-lg mt-2">R$</span>
                   <span className="text-6xl">27</span>
@@ -561,7 +526,7 @@ export default function App() {
                     <div className="bg-[#10B981] rounded-full p-1 flex-shrink-0">
                       <ShieldCheck className="w-3 h-3 text-white" />
                     </div>
-                    Garantia de 7 dias
+                    Garantia de 14 dias
                   </div>
                 </div>
 
@@ -578,45 +543,9 @@ export default function App() {
             </div>
           </div>
 
-          {/* Delivery Notice */}
-          <div className="mt-8 md:mt-12 bg-white rounded-2xl border-2 border-[#10B981] p-4 flex items-center gap-4 shadow-sm max-w-sm mx-auto">
-            <div className="bg-[#10B981] rounded-full p-2 shrink-0">
-              <Mail className="w-6 h-6 text-white" />
-            </div>
-            <p className="text-gray-900 font-medium text-sm leading-snug">Após a compra, você recebe acesso ao Material diretamente no seu E-mail</p>
-          </div>
+
         </div>
       </section>
-
-      {/* Testimonials Section */}
-      <section className="bg-white py-10 px-4" style={{ contentVisibility: 'auto' }}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#0F172A] mb-8">Depoimentos Reais</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { name: "Carlos M.", role: "Técnico de Segurança", text: "Uso em DDS direto aqui na empresa e mudou bastante a atenção do pessoal, antes ninguém ligava muito", img: "https://i.ibb.co/BJPQMBx/Captura-de-tela-2026-04-12-012538.png" },
-              { name: "Ricardo S.", role: "Engenheiro de Segurança", text: "Eu travava muito pra montar treinamento agora só abro escolho e aplico facilitou demais", img: "https://i.ibb.co/hFh1KPqd/Captura-de-tela-2026-01-24-154100.png" },
-              { name: "Ana P.", role: "RH / SIPAT", text: "SIPAT aqui ficou muito melhor esse ano o pessoal participou de verdade não ficou só ouvindo", img: "https://i.ibb.co/r25SBbLx/Captura-de-tela-2026-04-12-012425.png" }
-            ].map((t, i) => (
-              <div key={i} className="bg-white border border-orange-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center gap-3 mb-3">
-                  <img alt={t.name} className="w-10 h-10 rounded-full object-cover" src={t.img} width="40" height="40" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-                  <div>
-                    <h3 className="font-bold text-[#0F172A] text-sm">{t.name}</h3>
-                    <p className="text-xs text-gray-500">{t.role}</p>
-                  </div>
-                </div>
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />)}
-                </div>
-                <p className="text-gray-600 italic text-xs leading-relaxed">"{t.text}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Author Section removed - backed up in backup_sections.json */}
 
       {/* Guarantee Section */}
       <section className="bg-white py-6 px-4" style={{ contentVisibility: 'auto' }}>
@@ -624,9 +553,8 @@ export default function App() {
           <div className="w-20 h-20 bg-[#F0FDF4] rounded-full flex items-center justify-center mx-auto mb-4">
             <ShieldCheck className="w-10 h-10 text-[#10B981]" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Risco zero por 7 dias</h2>
-          <p className="text-gray-600 text-sm sm:text-base mb-4">Você pode acessar o material e testar por 7 dias. Se não gostar, é só pedir o reembolso e recebe 100% do seu dinheiro de volta.</p>
-          <p className="text-gray-400 font-medium text-xs sm:text-sm">Sem perguntas. Sem burocracia.</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Garantia de 14 dias</h2>
+          <p className="text-gray-600 text-sm sm:text-base mb-4">Se não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
         </div>
       </section>
 
@@ -640,7 +568,7 @@ export default function App() {
               { q: "Serve para qualquer tipo de empresa?", a: "Sim, pode ser aplicado em diferentes áreas, equipes e segmentos, independente do porte da empresa." },
               { q: "Preciso ter experiência?", a: "Não, o material é simples, explicativo e qualquer pessoa consegue aplicar mesmo sem experiência." },
               { q: "As atividades estão alinhadas às NRs?", a: "Sim, seguem as Normas Regulamentadoras e facilitam a aplicação prática no dia a dia." },
-              { q: "E se eu não gostar?", a: "Você tem 7 dias de garantia incondicional para pedir reembolso." }
+              { q: "E se eu não gostar?", a: "Você tem 14 dias de garantia incondicional para pedir reembolso." }
             ].map((faq, i) => <FAQItem key={i} question={faq.q} answer={faq.a} />)}
           </div>
           
