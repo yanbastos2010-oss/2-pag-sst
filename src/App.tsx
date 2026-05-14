@@ -58,20 +58,14 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
 
 const VortexVSL: React.FC = () => {
   return (
-    <a 
-      href="https://ibb.co/39tZ8M9Q" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="block relative group overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl hover:shadow-[#10B981]/20 transition-all duration-300 transform hover:-translate-y-1"
-    >
+    <div className="w-full h-auto">
       <img 
         src="https://i.ibb.co/wFDmbwFj/Untitled-design-5.png" 
         alt="Acesso Completo +250 Dinâmicas" 
-        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+        className="w-full h-auto block"
         referrerPolicy="no-referrer"
       />
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
-    </a>
+    </div>
   );
 };
 
