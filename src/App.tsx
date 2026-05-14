@@ -57,94 +57,21 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
 };
 
 const VortexVSL: React.FC = () => {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-  const [showOverlay, setShowOverlay] = React.useState(true);
-  const [progress, setProgress] = React.useState(0);
-  const [showPauseIcon, setShowPauseIcon] = React.useState(false);
-  const [isMuted, setIsMuted] = React.useState(true);
-
-  const curvatura = 0.5;
-
-  const handleFirstClick = () => {
-    if (videoRef.current) {
-      setIsMuted(false);
-      videoRef.current.currentTime = 0;
-      videoRef.current.play();
-      setShowOverlay(false);
-    }
-  };
-
-  const togglePlay = () => {
-    if (videoRef.current && !showOverlay) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setShowPauseIcon(false);
-      } else {
-        videoRef.current.pause();
-        setShowPauseIcon(true);
-      }
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current && videoRef.current.duration) {
-      let progressoLogico = Math.pow((videoRef.current.currentTime / videoRef.current.duration), curvatura) * 100;
-      if (progressoLogico > 100) progressoLogico = 100;
-      setProgress(progressoLogico);
-    }
-  };
-
-  const handleEnded = () => {
-    setShowPauseIcon(false);
-    setProgress(100);
-  };
-
   return (
-    <div id="vsl-container-9187" style={{ position: 'relative', width: '100%', maxWidth: '400px', margin: '20px auto', aspectRatio: '9/16', background: '#000', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
-      <video 
-        ref={videoRef}
-        id="vsl-video" 
-        autoPlay 
-        muted={isMuted} 
-        playsInline 
-        preload="auto"
-        onClick={togglePlay} 
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleEnded}
-        style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
-      >
-        <source src="https://imgur.com/u20c05W.mp4" type="video/mp4" />
-      </video>
-
-      {showOverlay && (
-        <div id="vsl-overlay" onClick={handleFirstClick} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 30 }}>
-          <div style={{ background: '#10B981', color: 'white', padding: '15px 25px', borderRadius: '50px', fontWeight: 'bold', fontSize: '16px', boxShadow: '0 4px 15px #10B98180' }}>
-            🔊 CLIQUE PARA OUVIR
-          </div>
-        </div>
-      )}
-
-      {showPauseIcon && (
-        <div id="pause-icon" onClick={togglePlay} style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 20 }}>
-          <div className="vortex-pulse-button" style={{ width: '80px', height: '80px', background: '#10B98166', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: 0, height: 0, borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderLeft: '25px solid white', marginLeft: '5px' }}></div>
-          </div>
-        </div>
-      )}
-
-      <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '12px', background: 'rgba(255,255,255,0.2)', zIndex: 25 }}>
-        <div id="progress-bar" style={{ width: `${progress}%`, height: '100%', background: '#10B981', transition: 'width 0.1s linear' }}></div>
-      </div>
-
-      <style>{`
-        @keyframes vortex-pulse-green {
-          0% { transform: scale(1); opacity: 0.8; }
-          50% { transform: scale(1.1); opacity: 0.4; }
-          100% { transform: scale(1); opacity: 0.8; }
-        }
-        .vortex-pulse-button { animation: vortex-pulse-green 2s infinite ease-in-out; }
-      `}</style>
-    </div>
+    <a 
+      href="https://ibb.co/39tZ8M9Q" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block relative group overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl hover:shadow-[#10B981]/20 transition-all duration-300 transform hover:-translate-y-1"
+    >
+      <img 
+        src="https://i.ibb.co/wFDmbwFj/Untitled-design-5.png" 
+        alt="Acesso Completo +250 Dinâmicas" 
+        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+        referrerPolicy="no-referrer"
+      />
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
+    </a>
   );
 };
 
